@@ -8,14 +8,15 @@
 from requests import get
 from matplotlib import pyplot as plt
 from datetime import datetime
+import config
 
-API_KEY = "RIC8GWK2VRMS6HR4T9D65RD5G46RJCIV5N"
-address = "0x5a741ab878bb65f6ae5506455fb555eaf3094b3f"
+
 BASE_URL = "https://api.etherscan.io/api"
 ETHER_TO_GWEI = 10**18
+address = "0x5a741ab878bb65f6ae5506455fb555eaf3094b3f"
 
 def make_api_url(module, action, address, **kwargs):
-        url = BASE_URL + f"?module={module}&action={action}&address={address}&apikey={API_KEY}"
+        url = BASE_URL + f"?module={module}&action={action}&address={address}&apikey={config.api_key}"
 
         for key, value in kwargs.items():
             url += f"&{key}={value}"
